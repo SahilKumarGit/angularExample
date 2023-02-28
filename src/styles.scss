@@ -1,1 +1,76 @@
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-schedule/styles/material.css';
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 /* You can add global styles to this file, and also import other style files */
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: arial, sans-serif;
+}
+
+.ppi {
+    // background-color: rgb(223, 229, 48);
+    padding: 4px 10px ;
+}
+
+._templateInCalender {
+    position: relative;
+
+
+}
+
+._listingInCalender {
+    bottom: 0;
+    max-height: 100%;
+    width: 100%;
+    padding: 4px;
+    min-height: 50px;
+
+    .oneLine {
+        font-size: 10px;
+        font-weight: 600;
+        flex: 1;
+        padding: 2px 4px;
+        border-radius: 20px;
+        width: 100%;
+        margin-bottom: 4px;
+        width: fit-content;
+        background-color: rgb(51, 159, 100);
+        color: white;
+        margin-right: 4px;
+        display: inline-flex;
+
+    }
+
+    .more {
+        font-size: 10px;
+        cursor: pointer;
+        user-select: none;
+        flex: 1;
+        padding: 2px;
+        border-radius: 20px;
+        width: 100%;
+        margin-bottom: 4px;
+        width: fit-content;
+        display: inline-flex;
+        background-color: rgba(121, 121, 121, 0.222);
+    }
+}

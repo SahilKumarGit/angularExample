@@ -1,0 +1,48 @@
+<button mwlCalendarPreviousView [(viewDate)]="viewDate" [view]="'month'">
+  Previous
+</button>
+<button mwlCalendarToday [(viewDate)]="viewDate">Today</button>
+<button mwlCalendarNextView [(viewDate)]="viewDate" [view]="'month'">
+  Next
+</button>
+
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+  <div class="cal-cell-top _templateInCalender">
+    <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{
+      day.badgeTotal
+    }}</span>
+    <span class="cal-day-number">{{
+      day.date | calendarDate : "monthViewDayNumber" : locale
+    }}</span>
+  </div>
+  <div class="_listingInCalender">
+    <span
+      *ngFor="let item of sliceArr(day.events, 2)"
+      class="oneLine"
+      [style]="
+        'background-color: ' +
+        item.color?.primary +
+        '; color: ' +
+        item.color?.secondaryText +
+        ';'
+      "
+    >
+      {{ item.title }}
+    </span>
+    <span *ngIf="(day.events || []).length > 2" class="more">
+      {{ (day.events || []).length - 2 }} more...
+    </span>
+  </div>
+</ng-template>
+
+<mwl-calendar-month-view
+  height="100%"
+  width="100%"
+  [activeDayIsOpen]="dayIsOpen"
+  [viewDate]="viewDate"
+  [events]="events"
+  (dayClicked)="cactivDay($event)"
+  (beforeViewRender)="rendorDone('beforeViewRender', $event)"
+  [cellTemplate]="customCellTemplate"
+>
+</mwl-calendar-month-view>
