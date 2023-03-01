@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hjjh-a9067": {
+      "hosting": {
+        "angularExample": [
+          "hjjh-a9067"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hjjh-a9067"
+  }
+}

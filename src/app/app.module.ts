@@ -11,6 +11,9 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
 import { EventActionsTemplateComponent } from './event-actions-template/event-actions-template.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -27,7 +30,9 @@ export function momentAdapterFactory() {
     BrowserModule,
     BrowserAnimationsModule,
     ScheduleModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideMessaging(() => getMessaging())
   ],
   providers: [],
   bootstrap: [AppComponent]
