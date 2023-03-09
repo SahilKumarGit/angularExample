@@ -1,10 +1,31 @@
 <div class="main">
-
-  vfdvdvdvdf
-  vfvdv Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid porro sint, cupiditate laborum quidem illum fugit nihil repellat repellendus maxime, fuga error provident aut dignissimos. Sed pariatur iusto saepe earum delectus voluptate in autem nulla libero! Repudiandae cupiditate officia, blanditiis quo fuga delectus eos exercitationem voluptas dolore accusantium distinctio necessitatibus dicta natus quidem, ex sed expedita laudantium eum, voluptatibus corporis optio aliquam modi quaerat autem! Nesciunt porro accusamus quae magni repellendus iusto, maxime dicta cupiditate eius fuga animi consequuntur consectetur totam commodi, quasi velit? Dolores voluptatum vel rerum quibusdam sunt sequi, autem vitae, beatae facere explicabo id, assumenda culpa omnis delectus illum aspernatur enim! Facilis, at provident autem beatae explicabo itaque fuga quae asperiores labore, ex laborum reiciendis? Aperiam illum quos facere corrupti numquam adipisci harum eius, non dolore ducimus repellat repellendus, vel asperiores temporibus nobis minus impedit libero, incidunt consectetur suscipit maiores! Animi esse, reiciendis necessitatibus fugit facere dolorum eius pariatur praesentium obcaecati numquam molestias modi nihil, ratione doloremque maiores eum, libero amet error quia assumenda veniam. Excepturi quidem tempore iure, aliquid architecto ut odit eligendi nesciunt quo tenetur amet a repellendus perferendis necessitatibus at nobis nisi fuga, suscipit totam consequatur quia aspernatur distinctio nemo? Odio iure praesentium corporis!
+  vfdvdvdvdf vfvdv Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  Aliquid porro sint, cupiditate laborum quidem illum fugit nihil repellat
+  repellendus maxime, fuga error provident aut dignissimos. Sed pariatur iusto
+  saepe earum delectus voluptate in autem nulla libero! Repudiandae cupiditate
+  officia, blanditiis quo fuga delectus eos exercitationem voluptas dolore
+  accusantium distinctio necessitatibus dicta natus quidem, ex sed expedita
+  laudantium eum, voluptatibus corporis optio aliquam modi quaerat autem!
+  Nesciunt porro accusamus quae magni repellendus iusto, maxime dicta cupiditate
+  eius fuga animi consequuntur consectetur totam commodi, quasi velit? Dolores
+  voluptatum vel rerum quibusdam sunt sequi, autem vitae, beatae facere
+  explicabo id, assumenda culpa omnis delectus illum aspernatur enim! Facilis,
+  at provident autem beatae explicabo itaque fuga quae asperiores labore, ex
+  laborum reiciendis? Aperiam illum quos facere corrupti numquam adipisci harum
+  eius, non dolore ducimus repellat repellendus, vel asperiores temporibus nobis
+  minus impedit libero, incidunt consectetur suscipit maiores! Animi esse,
+  reiciendis necessitatibus fugit facere dolorum eius pariatur praesentium
+  obcaecati numquam molestias modi nihil, ratione doloremque maiores eum, libero
+  amet error quia assumenda veniam. Excepturi quidem tempore iure, aliquid
+  architecto ut odit eligendi nesciunt quo tenetur amet a repellendus
+  perferendis necessitatibus at nobis nisi fuga, suscipit totam consequatur quia
+  aspernatur distinctio nemo? Odio iure praesentium corporis!
   <table class="table">
     <thead>
       <tr>
+        <th class="header" scope="col">
+          <input type="checkbox" />
+        </th>
         <th
           *ngFor="let item of tableStructure"
           (click)="sortBy(item.key)"
@@ -21,6 +42,7 @@
         class="body"
         (dblclick)="onDoubleClick(each, i)"
       >
+        <td><input type="checkbox" /></td>
         <td *ngFor="let item of tableStructure">
           <app-common-table-each-td
             [eachTableStructure]="item"
