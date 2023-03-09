@@ -1,2 +1,7 @@
 <!-- <app-calender-two></app-calender-two> -->
-<app-fcm></app-fcm>
+<!-- <app-fcm></app-fcm> -->
+<app-common-table
+  [tableStructure]="structure"
+  [tableDate]="data"
+  (doubleClick)="doubleClick($event)"
+></app-common-table>

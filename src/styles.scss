@@ -10,7 +10,7 @@
 /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css');
 
 
 * {
@@ -24,6 +24,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: arial, sans-serif;
+    overflow: hidden;
 }
 
 .ppi {

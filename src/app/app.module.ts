@@ -18,6 +18,8 @@ import { NotificationService } from './service/notification/notification.service
 import { AsyncPipe } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CommonTableComponent } from './common-table/common-table.component';
+import { CommonTableEachTDComponent } from './common-table-each-td/common-table-each-td.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -30,6 +32,8 @@ export function momentAdapterFactory() {
     CalenderTwoComponent,
     EventActionsTemplateComponent,
     FCMComponent,
+    CommonTableComponent,
+    CommonTableEachTDComponent,
   ],
   imports: [
     BrowserModule,

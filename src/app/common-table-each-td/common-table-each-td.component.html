@@ -1,0 +1,16 @@
+<div class="main">
+  {{ getItem(eachTableDate, eachTableStructure) }}
+  <div
+    class="buttonsGroup"
+    *ngIf="(eachTableStructure.actions || []).length > 0"
+  >
+    <button
+      *ngFor="let action of eachTableStructure.actions"
+      (click)="onClickBtn(action.action)"
+      class="tableButton"
+      [title]="action.title"
+    >
+      {{ action.title || 'Click' }}
+    </button>
+  </div>
+</div>
