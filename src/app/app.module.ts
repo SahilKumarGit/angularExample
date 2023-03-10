@@ -18,8 +18,10 @@ import { NotificationService } from './service/notification/notification.service
 import { AsyncPipe } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CommonTableComponent } from './common-table/common-table.component';
-import { CommonTableEachTDComponent } from './common-table-each-td/common-table-each-td.component';
+import { CommonTableComponent } from './table/common-table/common-table.component';
+import { CommonTableEachTDComponent } from './table/common-table-each-td/common-table-each-td.component';
+import { SelectButtonComponent } from './table/select-button/select-button.component';
+import { SwitchButtonComponent } from './table/switch-button/switch-button.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -34,6 +36,8 @@ export function momentAdapterFactory() {
     FCMComponent,
     CommonTableComponent,
     CommonTableEachTDComponent,
+    SelectButtonComponent,
+    SwitchButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TableStructureType } from '../common-table/common-table.component';
+import { TableStructureType, TableTypesEnum } from '../common-table/common-table.component';
 
 @Component({
   selector: 'app-common-table-each-td',
@@ -7,6 +7,7 @@ import { TableStructureType } from '../common-table/common-table.component';
   styleUrls: ['./common-table-each-td.component.scss']
 })
 export class CommonTableEachTDComponent {
+  _TableTypesEnum = TableTypesEnum
   @Input() eachTableStructure: TableStructureType = { title: '', key: '' };
   @Input() eachTableDate: { [key: string]: any } = {};
   @Input() index: number = -1;

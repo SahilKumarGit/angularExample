@@ -1,0 +1,30 @@
+<div class="main">
+  {{
+    eachTableStructure.type == _TableTypesEnum.string
+      ? getItem(eachTableDate, eachTableStructure)
+      : ""
+  }}
+
+  <app-switch-button
+    *ngIf="eachTableStructure.type == _TableTypesEnum.switch"
+    [Checked]="eachTableDate[eachTableStructure.key]"
+    (click)="onClickBtn((eachTableStructure.actions || [])[0].action)"
+  ></app-switch-button>
+
+  <div
+    *ngIf="
+      eachTableStructure.type !== _TableTypesEnum.switch &&
+      (eachTableStructure.actions || []).length > 0
+    "
+    class="buttonsGroup"
+  >
+    <button
+      *ngFor="let action of eachTableStructure.actions"
+      (click)="onClickBtn(action.action)"
+      class="tableButton"
+      [title]="action.title"
+    >
+      {{ action.title || "Click" }}
+    </button>
+  </div>
+</div>

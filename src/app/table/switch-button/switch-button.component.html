@@ -1,0 +1,11 @@
+<!-- <div class="main">
+  <div class="inner">
+    <label class="switch">
+      <input type="checkbox" [checked]="Checked"/>
+      <span class="slider"></span>
+    </label>
+  </div>
+</div> -->
+<div [class]="Checked ? 'switch on' : 'switch off'">
+  {{ Checked ? "Enable" : "Disable" }}
+</div>

@@ -1,0 +1,47 @@
+<div class="main">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="header" scope="col">
+          <app-select-button
+            (click)="onChangeForAll()"
+            [checked]="
+              objectLength(selected) === tableDate.length &&
+              tableDate.length > 0
+            "
+          ></app-select-button>
+        </th>
+        <th
+          *ngFor="let item of tableStructure"
+          (click)="sortBy(item.key)"
+          class="header"
+          scope="col"
+        >
+          {{ item.title }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let each of tableDate; let i = index"
+        class="body"
+        (dblclick)="onDoubleClick(each, i)"
+      >
+        <td>
+          <app-select-button
+            [color]="'#00000080'"
+            (click)="onChangeSelection(i)"
+            [checked]="selected[i] || false"
+          ></app-select-button>
+        </td>
+        <td *ngFor="let item of tableStructure">
+          <app-common-table-each-td
+            [eachTableStructure]="item"
+            [eachTableDate]="each"
+            [index]="i"
+          ></app-common-table-each-td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

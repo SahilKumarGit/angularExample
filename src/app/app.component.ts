@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { SwPush } from '@angular/service-worker';
-import { TableStructureType, TableTypesEnum } from './common-table/common-table.component';
+import { TableStructureType, TableTypesEnum } from './table/common-table/common-table.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,7 @@ import { TableStructureType, TableTypesEnum } from './common-table/common-table.
 })
 export class AppComponent {
   title = 'angularExample';
+  selected: { [key: number]: boolean } = {}
   constructor(private updates: SwUpdate, private swPush: SwPush) {
     updates.available.subscribe(_ => updates.activateUpdate().then(() => {
       alert('reload for update');
@@ -29,6 +30,11 @@ export class AppComponent {
     {
       title: "Last Name",
       key: "name.lname",
+      type: TableTypesEnum.string
+    },
+    {
+      title: "User ID",
+      key: "userid",
       type: TableTypesEnum.string
     },
     {
@@ -57,6 +63,19 @@ export class AppComponent {
       }]
     },
     {
+      title: "Status",
+      key: "status",
+      type: TableTypesEnum.switch,
+      actions: [{
+        icon: '',
+        title: 'switch',
+        action: (result: any, index: number) => {
+          console.log(result['status'] = !result['status'])
+          this.change()
+        },
+      }]
+    },
+    {
       title: "Action",
       key: "",
       type: TableTypesEnum.string,
@@ -66,6 +85,8 @@ export class AppComponent {
         action: (response: { [key: string]: any }, index: number) => {
           console.log("all good!")
           response['phone'] = "0000000000"
+          this.selected = {}
+          this.change()
         }
       }, {
         title: 'Delete',
@@ -73,6 +94,8 @@ export class AppComponent {
         action: (response: { [key: string]: any }, index: number) => {
           console.log("all good!")
           this.data.splice(index, 1)
+          this.selected = {}
+          this.change()
         }
       }, {
         title: 'View',
@@ -80,80 +103,114 @@ export class AppComponent {
         action: (response: { [key: string]: any }, index: number) => {
           console.log("all good!")
           response['phone'] = "0000000000"
+          this.selected = {}
+          this.change()
         }
       }, {
         title: 'Duplicate',
         icon: '.shs',
         action: (response: { [key: string]: any }, index: number) => {
-          this.data.push(response)
+          this.data.push(JSON.parse(JSON.stringify(response)))
+          this.selected = {}
+          this.change()
         }
       }]
     }
   ]
 
-  data: any[] = [
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo",
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo"
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo"
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo"
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo"
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo"
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    },
-    {
-      name: {
-        fname: "sahil Kumar",
-        lname: "sahoo",
-      },
-      email: "email.sahil@yahoo.com",
-      phone: "9658852281"
-    }
-  ]
+  data: any[] = []
 
   ngOnInit() {
+    try {
+      this.data = JSON.parse(localStorage.getItem('_') || '')
+    } catch (error) {
+      this.data = [
+        {
+          _id: '1',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo",
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '2',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo"
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '3',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo"
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '4',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo"
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '5',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo"
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '6',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo"
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        },
+        {
+          _id: '7',
+          name: {
+            fname: "sahil Kumar",
+            lname: "sahoo",
+          },
+          email: "email.sahil@yahoo.com",
+          phone: "9658852281",
+          userid: "od.le.io.ppi",
+          status: true
+        }
+      ]
+    }
   }
 
-  doubleClick(result: any) {
-    console.log(result)
+  change() {
+    localStorage.setItem('_', JSON.stringify(this.data))
+  }
+
+  click(str: string, result: any) {
+    console.log(str, result)
   }
 }
