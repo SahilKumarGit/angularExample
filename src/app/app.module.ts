@@ -22,6 +22,8 @@ import { CommonTableComponent } from './table/common-table/common-table.componen
 import { CommonTableEachTDComponent } from './table/common-table-each-td/common-table-each-td.component';
 import { SelectButtonComponent } from './table/select-button/select-button.component';
 import { SwitchButtonComponent } from './table/switch-button/switch-button.component';
+import { DAndDComponent } from './dragAndDrop/dand-d/dand-d.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -38,6 +40,7 @@ export function momentAdapterFactory() {
     CommonTableEachTDComponent,
     SelectButtonComponent,
     SwitchButtonComponent,
+    DAndDComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ export function momentAdapterFactory() {
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    DragDropModule
   ],
   providers: [NotificationService, AsyncPipe],
   bootstrap: [AppComponent]
